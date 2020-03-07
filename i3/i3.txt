@@ -187,3 +187,6 @@ for_window [class=".*"] split toggle
 
 #dual-screens
 exec_always xrand -output DVI-D-0 --off --output HDMI-0 --mode 1920x1080 --pos 1280x0 --rotate normal --output DP-0 --mode 1280x1024 --pos 0x56 --rotate normal --output DP-1 --off
+
+#lock
+bindsym $mod+Shift+x exec ~/lock.sh
