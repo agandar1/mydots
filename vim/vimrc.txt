@@ -1,0 +1,54 @@
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+Plugin 'dracula/vim',{'name':'dracula'}
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'vim-syntastic/syntastic'
+
+call vundle#end()
+filetype plugin indent on
+
+colorscheme nord
+syntax on
+set nu 
+set ruler
+set clipboard=unnamed
+
+let g:nord_cursor_line_number_background = 1
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+set encoding=UTF-8
+
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeIgnore = []
+let g:NERDTreeStatusline = ''
+" Automaticaly close nvim if NERDTree is only thing left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Toggle
+nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+
+
+"Syntastic Configuration
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+
+
+" Vim-Airline Configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
